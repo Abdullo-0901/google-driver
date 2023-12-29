@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-
+import ModalProvide from "@/components/providers/modal-provide";
+import { Toaster } from "sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,8 @@ export default function RootLayout({
             disableTransitionOnChange
             storageKey="googledrive"
           >
+            <Toaster position="top-center" />
+            <ModalProvide />
             {children}
           </ThemeProvider>
         </body>
